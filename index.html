@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Traffic Light Vehicle Queue Management System</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <main class="container">
+        <header>
+            <p class="eyebrow">DATA STRUCTURES MINI PROJECT</p>
+            <h1>Traffic Light Vehicle Queue Management System</h1>
+            <p class="subtitle">A simple demonstration of the Queue data structure using FIFO.</p>
+        </header>
+
+        <section class="signal-card" aria-label="Traffic signal status">
+            <div class="traffic-light" aria-label="Traffic light">
+                <span id="redLight" class="light red active"></span>
+                <span id="yellowLight" class="light yellow"></span>
+                <span id="greenLight" class="light green"></span>
+            </div>
+            <div class="signal-info">
+                <span class="section-label">CURRENT SIGNAL</span>
+                <h2 id="signalStatus">RED — Stop</h2>
+                <p id="signalMessage">Vehicles must wait in the queue.</p>
+            </div>
+            <div class="signal-actions">
+                <button id="redButton" class="button danger" type="button">Turn Red</button>
+                <button id="greenButton" class="button success" type="button">Turn Green & Pass Vehicle</button>
+            </div>
+        </section>
+
+        <section class="stats">
+            <article class="stat-card">
+                <span class="stat-label">WAITING VEHICLES</span>
+                <strong id="queueCount">0</strong>
+            </article>
+            <article class="stat-card">
+                <span class="stat-label">NEXT VEHICLE</span>
+                <strong id="nextVehicle">None</strong>
+            </article>
+            <article class="stat-card">
+                <span class="stat-label">QUEUE STATUS</span>
+                <strong id="queueStatus">Empty</strong>
+            </article>
+        </section>
+
+        <section class="panel">
+            <h2>Add a Vehicle</h2>
+            <p class="panel-description">Enter a vehicle registration number or name to join the rear of the queue.</p>
+            <form id="vehicleForm">
+                <label for="vehicleInput">Vehicle number / name</label>
+                <div class="input-row">
+                    <input id="vehicleInput" type="text" placeholder="e.g. KL-05-AB-1234" maxlength="40" required>
+                    <button class="button primary" type="submit">Add Vehicle</button>
+                </div>
+            </form>
+        </section>
+
+        <section class="panel">
+            <div class="queue-heading">
+                <div>
+                    <h2>Waiting Queue</h2>
+                    <p class="panel-description">Vehicles are shown from front to rear (FIFO order).</p>
+                </div>
+                <button id="clearButton" class="button secondary" type="button">Clear Queue</button>
+            </div>
+            <div id="queueList" class="queue-list">
+                <div class="empty-state">No vehicles are waiting. Add a vehicle to get started.</div>
+            </div>
+        </section>
+
+        <section class="panel operations">
+            <h2>Queue Operations</h2>
+            <div class="operation-grid">
+                <div><strong>Enqueue</strong><span>Add a vehicle to the rear of the queue.</span></div>
+                <div><strong>Dequeue</strong><span>Remove the front vehicle when the signal is green.</span></div>
+                <div><strong>Peek</strong><span>View the next vehicle without removing it.</span></div>
+                <div><strong>isEmpty</strong><span>Check whether the queue contains any vehicles.</span></div>
+            </div>
+        </section>
+
+        <div id="message" class="message" role="status" aria-live="polite"></div>
+        <footer>Data Structures Mini Project · Queue follows First In, First Out (FIFO)</footer>
+    </main>
+    <script src="script.js"></script>
+</body>
+</html>
